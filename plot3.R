@@ -3,6 +3,13 @@ Sys.setlocale("LC_TIME", "English")
 library(dplyr)
 library(lubridate)
 
+### download the original data
+
+if(!file.exists("./week1")) dir.create("./week1")
+URL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+download.file(URL, "./week1/data.zip")
+data_unzip <- unzip("./week1/data.zip", exdir = "./week1")
+
 ### load the original data  
 
 ori_data <- read.table("household_power_consumption.txt", header = TRUE, sep = ";")
